@@ -3,11 +3,11 @@ header("Refresh: 10;");
 error_reporting(E_ALL);
 include('phpgraphlib.php');
 
-$dbhost = 'localhost';
-$dbuser = 'aditya';
-$dbpass = 'obelix1';
-$dbname = "cluster";
-$tblname = 'cpuinfo';
+$dbhost = 'hostname';
+$dbuser = 'username';
+$dbpass = 'password';
+$dbname = "database_name";
+$tblname = 'table_name';
 //while(true){
 $dbhandle = mysql_connect($dbhost, $dbuser, $dbpass);
 if(!$dbhandle){
