@@ -4,11 +4,11 @@ error_reporting(E_ALL);
 echo include('pChart/pData.class');
 echo include('pChart/pChart.class');
 echo'<br>';
-$dbhost = 'localhost';
-$dbuser = 'aditya';
-$dbpass = 'obelix1';
-$dbname = "cluster";
-$tblname = 'cpuinfo';
+$dbhost = 'hostname';
+$dbuser = 'username';
+$dbpass = 'password';
+$dbname = "database_name";
+$tblname = 'table_name';
 //while(true){
 $dbhandle = mysql_connect($dbhost, $dbuser, $dbpass);
 if(!$dbhandle){
