@@ -33,8 +33,8 @@ try:
 	
 	#print "return value ",p.returncode
 	print d
-	#Change the db.connect command to reflect your settings.
-	table = db.connect('hostname','username','password','database_name');
+	
+	table = db.connect('localhost','aditya','obelix1','cluster');
 	cur = table.cursor();
 	for key in d.iterkeys():
 		print key,d[key]

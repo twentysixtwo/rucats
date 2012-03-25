@@ -23,19 +23,17 @@ try:
 	for line in p.stdout:
 		if line.find("wlan0") != -1 and line.find("Average") == -1 and line != '\n':
 			line = filter(lambda x: len(x)>0,line.split(' '))
-			print rx,tx,line
+			print rx,line
 			val.append(line.pop(rx))
 			val.append(line.pop(rx))
 	p.wait()
 	
-	#print "return value ",p.returncode
-	print val
+	print "return value ",p.returncode
+	print val[0],val[1]
 	
-	#table = db.connect('hostname','username','password','database_name');
-	#cur = table.cursor();
-	#for key in d.iterkeys():
-	#	print key,d[key]
-	#	cur.execute("insert into cpuinfo (data,procID) values (" + d[key] +','+key +')');
+	table = db.connect('localhost','aditya','obelix1','cluster');
+	cur = table.cursor();
+	cur.execute("insert into netinfo (rx,tx,clustID) values (" + str(val[0]) + ',' + str(val[1]) +','+ str(0) +')');
 	
 except db.Error, e:
 	
