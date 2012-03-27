@@ -1,0 +1,251 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>RUCATS</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+
+	
+	<link rel="stylesheet/less" href="less/style.less">
+	<script src="js/libs/less-1.2.1.min.js"></script>
+	
+	
+	<!-- Use SimpLESS (Win/Linux/Mac) or LESS.app (Mac) to compile your .less files
+	to style.css, and replace the 2 lines above by this one:
+	-->
+	
+	<!--<link rel="stylesheet/less" href="less/style.css">-->
+	 
+	<script src="js/libs/modernizr-2.5.3-respond-1.1.0.min.js"></script>
+	
+	<script src="js/libs/bootstrap/transition.js"></script>
+	<script src="js/libs/bootstrap/collapse.js"></script>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+        		$('#login-trigger').click(function(){
+                		$(this).next('#login-content').slideToggle();
+                		$(this).toggleClass('active');                                  
+				if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
+                        	else $(this).find('span').html('&#x25BC;')
+                		})
+			});
+	</script>
+</head>
+<body>
+<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"><img src="img/glyphicons-halflings.png" alt="test"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">RUCATS</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li class="active"><a href="#">Data</a></li>
+              <li><a href="jobs.html">Jobs</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!-- End container --> 
+        
+      </div> <!-- End navbar-inner -->
+    </div> <!-- End navbar-fixed-top -->
+
+<style type="text/css"><!-- Should be in the head -->
+	.navbar-fixed-left {
+		font-size:1.25em;
+		position:fixed;
+		top: 40px;
+		left: 0px;
+		width: 150px;
+		background: none repeat scroll 0% 0% rgb(44,44,44);
+			
+	}
+	.nav-left li {
+			list-style-type:none;
+			margin:0;
+			padding:0;
+			width:60px;
+	}
+	.nav-left li a{
+		display: block;
+		width: 60px;
+	}
+	
+	.nav-left li.active {
+		background-color: rgba(0,0,0,0.5);
+	}
+	.nav-left li:hover {
+		background-color: rgba(0,0,0,0.5);
+	}
+</style>
+	
+	<div class="navbar navbar-fixed-left">
+			<ul class=" nav-left">
+				<li class="active"><a href="data.html">Test 1</a></li>
+				<li><a href="data.html">Test 2</a></li>
+			</ul>
+	</div>
+	
+    <div class="container">
+      <div class="hero-unit">
+					<center>
+									<?php
+										      session_start();
+										      $liveGraph = $_POST["liveGraph"];
+										      $submit = $_POST["submit"];
+										      $numpts = $_POST["numpts"];
+										      $info = $_POST["info"];
+										      
+										      print_r($_POST);
+										      echo '<br/><br/>';
+										      if(!isset($_POST['info'])){
+										          $_SESSION['info'] = 'cpuinfo';
+										      }
+										      else{
+										          $_SESSION['info'] = $info;
+										      }
+										      if(!isset($_POST['numpts'])){
+										          $_SESSION['numpts'] = 6;
+										      }
+										      else{
+										          $_SESSION['numpts'] = $numpts;
+										      }
+										      if ($liveGraph == 'live'){
+										          echo '<img src="graph.php" id="reloader" onload="setTimeout(\'document.getElementById(\\\'reloader\\\').src=\\\'graph.php?\\\'+new Date().getMilliseconds()\', 5000)" height="230" width="700" />';
+										      }
+										      else{
+										          echo '<img src="graph.php" height="230" width="700" />';
+										      }
+									?>
+							</center>
+					 <br>
+					 <center>
+							 <form action ="<?php echo $_SERVER['PHP_SELF']; ?>" method ="post">
+									 <center>
+									 Graph Type:
+									 <select name="liveGraph" style="min-width:125px;">
+										   <?php
+										      if(!isset($_POST['liveGraph'])){                
+										          echo '<option value="static">Select one</option>';
+										          echo '<option value="static">Static Graph</option>';
+										          echo '<option value="live">Live Graph</option>';
+										      }
+										      else{ 
+										              if($liveGraph == 'static'){
+										                  echo '<option selected value="static">Static Graph</option>';
+										                  echo '<option value="live">Live Graph</option>';
+										              }
+										              else{
+										                  echo '<option selected value="live">Live Graph</option>';
+										                  echo '<option value="static">Static Graph</option>';
+										              }
+										      }
+										   ?>   
+									 </select>
+									 </center>
+									 <br/>
+									<center>
+									Graph Info. :
+									<select name="info" style="min-width:125px;">
+										  <?php
+										      if(!isset($_POST['info'])){
+										          echo '<option value="cpuinfo">Select one</option>';
+										          echo'<option value="cpuinfo">CPU Info</option>';
+										          echo '<option value="netinfo">Network Info</option>';
+										          echo '<option value="tempinfo">Temperature Info</option>';
+										      }
+										      else{
+										          if($info == 'cpuinfo'){
+										              echo '<option selected value="cpuinfo">CPU Info</option>';
+										              echo '<option value="netinfo">Network Info</option>';
+										              echo '<option value="tempinfo">Temperature Info</option>';
+										          }
+										          else if($info == 'netinfo'){
+										              echo '<option selected value="netinfo">Network Info</option>';
+										              echo'<option value="cpuinfo">CPU Info</option>';
+										              echo '<option value="tempinfo">Temperature Info</option>';
+										          }
+										          else if($info == 'tempinfo'){
+										              echo '<option selected value="tempinfo">Temperature Info</option>';
+										              echo '<option value="cpuinfo">CPU Info</option>';
+										              echo'<option value="netinfo">Network Info</option>';                        
+										          }
+										      }
+										  ?>
+
+									</select>
+									</center>
+									<br/>
+									<center>
+									Plot Points:    
+									<select name="numpts" style="min-width: 125px;">
+										  <?php
+										      if(!isset($_POST['numpts'])){
+										          echo '<option value="6">Select one</option>';
+										          echo '<option value="6">1 min.</option>';
+										          echo '<option value="30">5 mins.</option>';
+										          echo '<option value="60">10 mins.</option>';
+										      }
+										      else{
+										          if($numpts == '6'){
+										          echo '<option selected value="6">1 min.</option>';
+										          echo '<option value="30">5 mins.</option>';
+										          echo '<option value="60">10 mins.</option>';                        
+										          }
+										          else if($numpts == '30'){
+										          echo '<option selected value="30">5 min.</option>';
+										          echo '<option value="6">1 mins.</option>';
+										          echo '<option value="60">10 mins.</option>';                             
+										          }
+										          else if($numpts == '60'){
+										          echo '<option selected value="60">10 min.</option>';
+										          echo '<option value="6">1 mins.</option>';
+										          echo '<option value="30">5 mins.</option>';                          
+										          }
+										      }
+										  ?>
+									</select>
+									</center>
+									<br>
+									<input type="submit" name="submit" value="Generate Graph">
+							 </form>
+					 </center>
+      </div>
+
+
+      <footer>
+      </footer>
+
+    </div> <!-- /container -->
+    
+    <!-- unneeded scripts 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+
+<script src="js/plugins.js"></script>
+<script src="js/script.js"></script>
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+	-->
+</body>
+</html>
