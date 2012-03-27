@@ -44,6 +44,40 @@
 <body>
 <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
+<style>
+	ul.sub-level {
+		display:none;
+		text-align:center;
+	}
+	li:hover .sub-level {
+    background-color: rgb(44,44,44);
+    /*text-decoration: none;*/
+    border: #fff solid;
+    border-width: 1px;
+    display: block;
+    position: absolute;
+    left: 28px;
+    top: 40px;
+}
+	ul.sub-level li {
+		list-style: none;
+	}
+	ul.sub-level li a {
+		display:block;
+		width: 47px;
+		height: 25px;
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+		color: rgb(255,255,255);
+		font-size:13px;
+		text-decoration:none;
+	}
+	ul.sub-level li a:hover {
+		outline: 0pt none;
+		color:rgb(255,255,255);
+		background-color:rgba(0,0,0,0.5);
+	}
+</style>
+
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -56,7 +90,12 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li><a href="index.html">Home</a></li>
-              <li class="active"><a href="#">Data</a></li>
+              <li class="active"><a href="#">Data</a>
+              	<ul class="sub-level">
+              		<li><a href="data1.html">Data 1</a></li>
+              		<li><a href="data2.html">Data 2</a></li>
+              	</ul>
+              </li>
               <li><a href="jobs.html">Jobs</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -64,43 +103,7 @@
         
       </div> <!-- End navbar-inner -->
     </div> <!-- End navbar-fixed-top -->
-
-<style type="text/css"><!-- Should be in the head -->
-	.navbar-fixed-left {
-		font-size:1.25em;
-		position:fixed;
-		top: 40px;
-		left: 0px;
-		width: 150px;
-		background: none repeat scroll 0% 0% rgb(44,44,44);
-			
-	}
-	.nav-left li {
-			list-style-type:none;
-			margin:0;
-			padding:0;
-			width:60px;
-	}
-	.nav-left li a{
-		display: block;
-		width: 60px;
-	}
-	
-	.nav-left li.active {
-		background-color: rgba(0,0,0,0.5);
-	}
-	.nav-left li:hover {
-		background-color: rgba(0,0,0,0.5);
-	}
-</style>
-	
-	<div class="navbar navbar-fixed-left">
-			<ul class=" nav-left">
-				<li class="active"><a href="data.html">Test 1</a></li>
-				<li><a href="data.html">Test 2</a></li>
-			</ul>
-	</div>
-	
+    
     <div class="container">
       <div class="hero-unit">
 					<center>
