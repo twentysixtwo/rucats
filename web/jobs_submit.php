@@ -109,10 +109,10 @@
               		<li><a href="data_temp.php">Temperature Data</a></li>
               	</ul>
               </li>
-              <li class="active"><a href="#">Jobs</a>
+              <li class="active"><a href="jobs.php">Jobs</a>
               	<ul class="sub-level sub-level-jobs">
               		<li><a href="jobs_live.php">Live Jobs</a></li>
-              		<li><a href="jobs_submit.php">Submit Jobs</a></li>
+              		<!--<li class="active"><a href="#">Submit Jobs</a></li>-->
               	</ul>
               </li>
             </ul>

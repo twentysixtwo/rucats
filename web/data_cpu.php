@@ -103,7 +103,7 @@
               <li><a href="index.php">Home</a></li>
               <li class="active"><a href="#">Data</a>
               	<ul class="sub-level sub-level-data">
-              		<li><a href="data_cpu.php">CPU Data</a></li>
+              		<!--<li class="active"><a href="#">CPU Data</a></li>-->
               		<li><a href="data_net.php">Network Data</a></li>
               		<li><a href="data_temp.php">Temperature Data</a></li>
               	</ul>
