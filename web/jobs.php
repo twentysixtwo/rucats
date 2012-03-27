@@ -52,63 +52,58 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
+          
           <a class="brand" href="#">RUCATS</a>
           <div class="nav-collapse">
             <ul class="nav">
               <li><a href="index.html">Home</a></li>
-              <li class="active"><a href="#">Data</a></li>
-              <li><a href="jobs.html">Jobs</a></li>
+              <li><a href="data.html">Data</a></li>
+              <li class="active"><a href="#">Jobs</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!-- End container --> 
         
+        <!-- Ignoring login for now
+        <div class="login"> 
+			  	<a id="login-trigger" href="#login">Log in</a>
+				<div id="login-content">
+					<form>
+						<fieldset id="inputs">
+							<input id="username" type="text" placeholder="Username" required>
+							<input id="password" type="password" placeholder="Password" required>
+						</fieldset> 
+						<fieldset id="actions">
+							<input type="submit" id="submit" value="Log In">
+							<label><input type="checkbox" checked="checked">Keep me signed in</label>
+						</fieldset>
+					</form>
+				</div> 
+        </div> End login div -->
+        
       </div> <!-- End navbar-inner -->
     </div> <!-- End navbar-fixed-top -->
 
-<style type="text/css"><!-- Should be in the head -->
-	.navbar-fixed-left {
-		font-size:1.25em;
-		position:fixed;
-		top: 40px;
-		left: 0px;
-		width: 150px;
-		background: none repeat scroll 0% 0% rgb(44,44,44);
-			
-	}
-	.nav-left li {
-			list-style-type:none;
-			margin:0;
-			padding:0;
-			width:60px;
-	}
-	.nav-left li a{
-		display: block;
-		width: 60px;
-	}
-	
-	.nav-left li.active {
-		background-color: rgba(0,0,0,0.5);
-	}
-	.nav-left li:hover {
-		background-color: rgba(0,0,0,0.5);
-	}
-</style>
-	
-	<div class="navbar navbar-fixed-left">
-			<ul class=" nav-left">
-				<li class="active"><a href="data.html">Test 1</a></li>
-				<li><a href="data.html">Test 2</a></li>
-			</ul>
-	</div>
-	
     <div class="container">
       <div class="hero-unit">
-        <h1>Graphs go here</h1>
-        	<img src="img/glyphicons-halflings.png" alt="Test pic"/> 
+        <h1>Placeholder for jobs</h1>
         	
-
       </div>
 
+      <!-- Example row of columns -->
+      <!--
+      <div class="row">
+        <div class="span4">
+          <h2>Heading</h2>
+        </div>
+        <div class="span4">
+          <h2>Heading</h2>
+       </div>
+        <div class="span4">
+          <h2>Heading</h2>
+        </div>
+      </div>
+		-->
+      <!-- Horizontal line <hr> --> 
 
       <footer>
       </footer>
