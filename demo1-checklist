@@ -1,6 +1,7 @@
 Edited 3/27 2:43 PM
 @Author: Aditya
 
+- work on the login mechanism and debug the sql query issues.
 - start doing the presentation for the back-end scripts and graphing packages.
 - sorting out the hrefs, filenames and structures of the webpages.
 - drop down for nav bars need to be updated with temperature info and jobs needs to be updated with "live jobs" and "job submission"
