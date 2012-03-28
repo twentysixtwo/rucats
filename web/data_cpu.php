@@ -129,16 +129,9 @@
 										      $liveGraph = $_POST["liveGraph"];
 										      $submit = $_POST["submit"];
 										      $numpts = $_POST["numpts"];
-										      $info = $_POST["info"];
-										      
+										      $_SESSION['info'] = 'cpuinfo';
 										      print_r($_POST);
 										      echo '<br/><br/>';
-										      if(!isset($_POST['info'])){
-										          $_SESSION['info'] = 'cpuinfo';
-										      }
-										      else{
-										          $_SESSION['info'] = $info;
-										      }
 										      if(!isset($_POST['numpts'])){
 										          $_SESSION['numpts'] = 6;
 										      }
@@ -178,38 +171,6 @@
 										   ?>   
 									 </select>
 									 </center>
-									 <br/>
-									<center>
-									Graph Info. :
-									<select name="info" style="min-width:125px;">
-										  <?php
-										      if(!isset($_POST['info'])){
-										          echo '<option value="cpuinfo">Select one</option>';
-										          echo'<option value="cpuinfo">CPU Info</option>';
-										          echo '<option value="netinfo">Network Info</option>';
-										          echo '<option value="tempinfo">Temperature Info</option>';
-										      }
-										      else{
-										          if($info == 'cpuinfo'){
-										              echo '<option selected value="cpuinfo">CPU Info</option>';
-										              echo '<option value="netinfo">Network Info</option>';
-										              echo '<option value="tempinfo">Temperature Info</option>';
-										          }
-										          else if($info == 'netinfo'){
-										              echo '<option selected value="netinfo">Network Info</option>';
-										              echo'<option value="cpuinfo">CPU Info</option>';
-										              echo '<option value="tempinfo">Temperature Info</option>';
-										          }
-										          else if($info == 'tempinfo'){
-										              echo '<option selected value="tempinfo">Temperature Info</option>';
-										              echo '<option value="cpuinfo">CPU Info</option>';
-										              echo'<option value="netinfo">Network Info</option>';                        
-										          }
-										      }
-										  ?>
-
-									</select>
-									</center>
 									<br/>
 									<center>
 									Plot Points:    
