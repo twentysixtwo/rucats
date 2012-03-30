@@ -143,7 +143,7 @@ check_logged(); /// function checks if visitor is logged.
 										      $submit = $_POST["submit"];
 										      $numpts = $_POST["numpts"];
 										      $_SESSION['info'] = 'cpuinfo';
-										      print_r($_POST);
+										      //print_r($_POST);
 										      echo '<br/><br/>';
 										      if(!isset($_POST['numpts'])){
 										          $_SESSION['numpts'] = 6;

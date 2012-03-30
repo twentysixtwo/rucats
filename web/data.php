@@ -144,7 +144,7 @@ check_logged(); /// function checks if visitor is logged.
 										      $numpts = $_POST["numpts"];
 										      $info = $_POST["info"];
 										      
-										      print_r($_POST);
+										      //print_r($_POST);
 										      echo '<br/><br/>';
 										      if(!isset($_POST['info'])){
 										          $_SESSION['info'] = 'cpuinfo';

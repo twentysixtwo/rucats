@@ -144,7 +144,7 @@ check_logged(); /// function checks if visitor is logged.
 										      $numpts = $_POST["numpts"];
 										      $_SESSION['info'] = 'tempinfo';
 										      
-										      print_r($_POST);
+										      //print_r($_POST);
 										      echo '<br/><br/>';
 										      if(!isset($_POST['numpts'])){
 										          $_SESSION['numpts'] = 6;
