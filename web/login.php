@@ -1,6 +1,7 @@
 <?php
 	ob_start();
 	session_start();
+
 	include("password.php");
 	
 	if ($_POST["act"]=="log") { /// do after login form is submitted

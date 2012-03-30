@@ -1,6 +1,8 @@
+<!-- NOT BEING USED -->
+
 <?php
-	ini_set('display_errors', 'On');
-	error_reporting(E_ALL | E_STRICT);
+	//ini_set('display_errors', 'On');
+	//error_reporting(E_ALL | E_STRICT);
 	ob_start();
 	$host="localhost"; // Host name 
 	$username="root"; // Mysql username 

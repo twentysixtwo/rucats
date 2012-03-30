@@ -1,5 +1,4 @@
 <?php
-$USERS["user"] = "pass";
 
 function check_logged() {
 		
