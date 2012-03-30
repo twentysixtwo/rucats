@@ -1,17 +1,6 @@
-<?php 
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
-
-session_start(); 
-include("password.php"); 
-
-check_logged(); /// function checks if visitor is logged. 
-
-//If user is not logged the user is redirected to login.php page  
-
-?> 
-
-
+<?php
+	session_start();
+?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -51,7 +40,6 @@ check_logged(); /// function checks if visitor is logged.
 	</script>
 </head>
 <body>
-<!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
 
 <style>
 	ul.sub-level {
@@ -59,24 +47,22 @@ check_logged(); /// function checks if visitor is logged.
 		text-align:center;
 	}
 	li:hover .sub-level-data {
-    background-color: rgb(44,44,44);
-    /*text-decoration: none;*/
-    border: #fff solid;
-    border-width: 1px;
-    display: block;
-    position: absolute;
-    left: 28px;
-    top: 40px;
+    	background-color: rgb(44,44,44);
+    	border: #fff solid;
+    	border-width: 1px;
+    	display: block;
+    	position: absolute;
+    	left: 28px;
+    	top: 40px;
 }
 	li:hover .sub-level-jobs {
-	background-color: rgb(44,44,44);
-    /*text-decoration: none;*/
-    border: #fff solid;
-    border-width: 1px;
-    display: block;
-    position: absolute;
-    left: 75px;
-    top: 40px;
+		background-color: rgb(44,44,44);
+    	border: #fff solid;
+    	border-width: 1px;
+    	display: block;
+    	position: absolute;
+    	left: 75px;
+    	top: 40px;
 	}
 	ul.sub-level li {
 		list-style: none;
@@ -151,11 +137,19 @@ check_logged(); /// function checks if visitor is logged.
       <div class="hero-unit">
         <h1>Intro and login</h1>
         	<?php 
-        		echo "Hello" . $_SESSION["logged"];
+        		if ((array_key_exists("logged",$_SESSION)) && (!empty($_SESSION["logged"]))) {
+        			echo "Hello " . $_SESSION["logged"];
+				}
+					
+				else {
+					
         	?>
-        	<!-- Login prompt 
+        	
+        	<!-- Login prompt --> 
         	<table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-			<tr><form name="form1" method="post" action="checklogin.php">
+			<tr>
+				<form name="form1" method="post" action="login.php">
+				<input type="hidden" name="act" value="log">
 			<td>
 				<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
 				<tr><td colspan="3"><strong>Member Login </strong></td></tr>
@@ -179,7 +173,9 @@ check_logged(); /// function checks if visitor is logged.
 			</form>
 			</tr>
 			</table>
-			-->
+			<?php 
+				} 
+			?>
       </div>
 
       <!-- Example row of columns -->
