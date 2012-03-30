@@ -1,3 +1,17 @@
+<?php 
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT);
+
+session_start(); 
+include("password.php"); 
+
+check_logged(); /// function checks if visitor is logged. 
+
+//If user is not logged the user is redirected to login.php page  
+
+?> 
+
+
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -136,8 +150,10 @@
     <div class="container">
       <div class="hero-unit">
         <h1>Intro and login</h1>
-        	
-        	<!-- Login prompt -->
+        	<?php 
+        		echo "Hello" . $_SESSION["logged"];
+        	?>
+        	<!-- Login prompt 
         	<table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
 			<tr><form name="form1" method="post" action="checklogin.php">
 			<td>
@@ -146,12 +162,12 @@
 				<tr>
 					<td width="78">Username</td>
 					<td width="6">:</td>
-					<td width="294"><input name="myusername" type="text" id="myusername"></td>
+					<td width="294"><input name="username" type="text" id="username"></td>
 				</tr>
 				<tr>
 					<td>Password</td>
 					<td>:</td>
-					<td><input name="mypassword" type="password" id="mypassword"></td>
+					<td><input name="password" type="password" id="password"></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
@@ -163,7 +179,7 @@
 			</form>
 			</tr>
 			</table>
-
+			-->
       </div>
 
       <!-- Example row of columns -->

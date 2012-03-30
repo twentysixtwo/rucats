@@ -1,6 +1,7 @@
 <?php
 session_start();
 error_reporting(E_ALL);
+
 include('pChart/pData.class');
 include('pChart/pChart.class');
 $tblname = $_SESSION['info'];
