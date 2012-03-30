@@ -114,7 +114,7 @@ check_logged(); /// function checks if visitor is logged.
           <div class="nav-collapse">
             <ul class="nav">
               <li><a href="index.php">Home</a></li>
-              <li class="active"><a href="#">Data</a>
+              <li class="active"><a href="data.php">Data</a>
               	<ul class="sub-level sub-level-data">
               		<!--<li class="active"><a href="#">CPU Data</a></li>-->
               		<li><a href="data_net.php">Network Data</a></li>
