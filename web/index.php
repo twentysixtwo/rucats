@@ -139,6 +139,10 @@
         	<?php 
         		if ((array_key_exists("logged",$_SESSION)) && (!empty($_SESSION["logged"]))) {
         			echo "Hello " . $_SESSION["logged"];
+					
+				?>
+				<a href="logout.php">Logout</a>			
+				<?php
 				}
 					
 				else {
@@ -152,7 +156,7 @@
 				<input type="hidden" name="act" value="log">
 			<td>
 				<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-				<tr><td colspan="3"><strong>Member Login </strong></td></tr>
+				<tr><td colspan="3"><strong>Login</strong></td></tr>
 				<tr>
 					<td width="78">Username</td>
 					<td width="6">:</td>
