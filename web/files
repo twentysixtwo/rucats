@@ -1,7 +1,6 @@
 used + 
 unused -
 ---------------
-checklogin.php -
 data_cpu.php +
 data_net.php +
 data_temp.php +
@@ -11,7 +10,6 @@ index.php +
 jobs_live.php +
 jobs_submit.php +
 jobs.php +
-login_success.php -
 login.php +
 logout.php +
 password.php +
