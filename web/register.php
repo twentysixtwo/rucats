@@ -87,15 +87,10 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
           <a class="brand" href="#">RUCATS</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="index.php">Home</a></li>
               <li><a href="data.php">Data</a>
               	<ul class="sub-level sub-level-data">
               		<li><a href="data_cpu.php">CPU Data</a></li>
@@ -113,32 +108,15 @@
           </div><!--/.nav-collapse -->
         </div><!-- End container --> 
         
-        <!-- Ignoring login for now
-        <div class="login"> 
-			  	<a id="login-trigger" href="#login">Log in</a>
-				<div id="login-content">
-					<form>
-						<fieldset id="inputs">
-							<input id="username" type="text" placeholder="Username" required>
-							<input id="password" type="password" placeholder="Password" required>
-						</fieldset> 
-						<fieldset id="actions">
-							<input type="submit" id="submit" value="Log In">
-							<label><input type="checkbox" checked="checked">Keep me signed in</label>
-						</fieldset>
-					</form>
-				</div> 
-        </div> End login div -->
-        
       </div> <!-- End navbar-inner -->
     </div> <!-- End navbar-fixed-top -->
 
     <div class="container">
       <div class="hero-unit">
-        <h1>Intro and login</h1>
+        <h1></h1>
         	<?php 
         		if ((array_key_exists("logged",$_SESSION)) && (!empty($_SESSION["logged"]))) {
-        			echo "Hello " . $_SESSION["logged"];
+        			echo "Hello " . $_SESSION["logged"] . ". Please logout to use this form.";
 					
 				?>
 				<a href="logout.php">Logout</a>			
@@ -149,14 +127,14 @@
 					
         	?>
         	
-        	<!-- Login prompt --> 
+        	<!-- Register prompt --> 
         	<table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
 			<tr>
-				<form name="form1" method="post" action="login.php">
-				<input type="hidden" name="act" value="log">
+				<form name="form2" method="post" action="reg.php">
+				<input type="hidden" name="act" value="reg">
 			<td>
 				<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-				<tr><td colspan="3"><strong>Login</strong></td></tr>
+				<tr><td colspan="3"><strong>Register</strong></td></tr>
 				<tr>
 					<td width="78">Username</td>
 					<td width="6">:</td>
@@ -168,10 +146,14 @@
 					<td><input name="password" type="password" id="password"></td>
 				</tr>
 				<tr>
+					<td>Retype Password</td>
+					<td>:</td>
+					<td><input name="password2" type="password" id="password2"></td>
+				</tr>
+				<tr>
 					<td>&nbsp;</td>
 					<td>&nbsp;</td>
 					<td><input type="submit" name="Submit" value="Login"></td>
-					<td><a href="register.php">Register</a></td>
 				</tr>
 				</table>
 			</td>
@@ -183,40 +165,10 @@
 			?>
       </div>
 
-      <!-- Example row of columns -->
-      <!--
-      <div class="row">
-        <div class="span4">
-          <h2>Heading</h2>
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-        </div>
-      </div>
-		-->
-      <!-- Horizontal line <hr> --> 
-
       <footer>
       </footer>
 
     </div> <!-- /container -->
-    
-    <!-- unneeded scripts 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
 
-
-<script src="js/plugins.js"></script>
-<script src="js/script.js"></script>
-<script>
-	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
-	-->
 </body>
 </html>
