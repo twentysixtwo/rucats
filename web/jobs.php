@@ -130,68 +130,24 @@ check_logged(); /// function checks if visitor is logged.
               </li>
             </ul>
           </div><!--/.nav-collapse -->
-        </div><!-- End container --> 
-        
-        <!-- Ignoring login for now
-        <div class="login"> 
-			  	<a id="login-trigger" href="#login">Log in</a>
-				<div id="login-content">
-					<form>
-						<fieldset id="inputs">
-							<input id="username" type="text" placeholder="Username" required>
-							<input id="password" type="password" placeholder="Password" required>
-						</fieldset> 
-						<fieldset id="actions">
-							<input type="submit" id="submit" value="Log In">
-							<label><input type="checkbox" checked="checked">Keep me signed in</label>
-						</fieldset>
-					</form>
-				</div> 
-        </div> End login div -->
-        
+        </div><!-- End container -->         
       </div> <!-- End navbar-inner -->
     </div> <!-- End navbar-fixed-top -->
 
     <div class="container">
       <div class="hero-unit">
         <h1>Placeholder for jobs</h1>
+        <form action="upload_file.php" method="post" enctype="multipart/form-data">
+			<label for="file">Filename:</label>
+			<input type="file" name="file" id="file" /> 
+			<br />
+			<input type="submit" name="submit" value="Submit" />
+		</form>
         	
       </div>
-
-      <!-- Example row of columns -->
-      <!--
-      <div class="row">
-        <div class="span4">
-          <h2>Heading</h2>
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-        </div>
-      </div>
-		-->
-      <!-- Horizontal line <hr> --> 
-
       <footer>
       </footer>
 
     </div> <!-- /container -->
-    
-    <!-- unneeded scripts 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-
-
-<script src="js/plugins.js"></script>
-<script src="js/script.js"></script>
-<script>
-	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
-	-->
 </body>
 </html>
