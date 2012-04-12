@@ -4,7 +4,7 @@
 		
 	if ($_POST["act"]=="reg") {
 		//if(($_POST['password'])==($_POST['password2'])) {
-		if(strcmp($_POST['password'], $_POST['password2'])) { //returns 0 on equal
+		if(!strcmp($_POST['password'], $_POST['password2'])) { //returns 0 on equal
 			$host="localhost"; // Host name 
 			$username="user"; // Mysql username 
 			$password=""; // Mysql password 
@@ -23,21 +23,24 @@
 			$mypassword = stripslashes($mypassword);
 			$myusername = mysql_real_escape_string($myusername);
 			$mypassword = mysql_real_escape_string($mypassword);
+			
 			//SELECT COUNT(*) ...
-			$sql="SELECT * FROM " . $tbl_name . " WHERE username='" . $myusername;
-			$result=mysql_query($sql);
+			//$sql="SELECT * FROM " . $tbl_name . " WHERE username='" . $myusername . "'";
+			//$result=mysql_query($sql);
 			// Mysql_num_row is counting table row
-			$count=mysql_num_rows($result);
-			if($count==1){ // username is used already
-				sleep(5);
-				header("location: register.php"); 
+			//$count=mysql_num_rows($result);
+			$count=mysql_query("SELECT COUNT(*) FROM " . $tbl_name . " WHERE username ='" . $myusername . "'");
+			if(mysql_num_rows($count)==1){ // username is used already
+				sleep(0);
+				$_SESSION['username'] = $myusername;
+				header("location: register_fail.php"); 
 			} else { //username and password valid put in db
 				mysql_query("INSERT INTO members (username, password) values ('" . $myusername . "','" . $mypassword . "')");
-				header("location: register.php");
+				header("location: register_success.php");
 			}
 		} else { //passwords not equal
-			sleep(5);
-			header("location: register.php");
+			sleep(0);
+			header("location: register_fail.php");
 		}			 
 
 }

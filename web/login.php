@@ -34,11 +34,12 @@
 		$_SESSION["logged"]=$_POST["username"];
 		header("location: index.php"); 
 	} else { 
-		echo 'Incorrect username/password. Please, try again.'; 
+		echo 'Incorrect username/password. Please, try again.';
+		$_SESSION['failed']=TRUE;
+		header("location:index.php"); 
 	}; 
 
 };
-	header("location:index.php");
 	//if ((array_key_exists($_SESSION["logged"],$USERS)) && (!empty($_SESSION["logged"]))) { 
 	//	header("location: index.php");
 	//} else { // if not logged show login form (eventually redirect to prettier login page) 
