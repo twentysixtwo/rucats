@@ -3,7 +3,8 @@
 	session_start();
 		
 	if ($_POST["act"]=="reg") {
-		 	if(($_POST['password'])==($_POST['password2'])) {
+		//if(($_POST['password'])==($_POST['password2'])) {
+		if(strcmp($_POST['password'], $_POST['password2'])) { //returns 0 on equal
 			$host="localhost"; // Host name 
 			$username="user"; // Mysql username 
 			$password=""; // Mysql password 
@@ -22,7 +23,7 @@
 			$mypassword = stripslashes($mypassword);
 			$myusername = mysql_real_escape_string($myusername);
 			$mypassword = mysql_real_escape_string($mypassword);
-
+			//SELECT COUNT(*) ...
 			$sql="SELECT * FROM " . $tbl_name . " WHERE username='" . $myusername;
 			$result=mysql_query($sql);
 			// Mysql_num_row is counting table row
