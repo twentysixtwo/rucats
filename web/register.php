@@ -143,7 +143,7 @@
 				<tr>
 					<td>Password</td>
 					<td>:</td>
-					<td><input name="password" type="password" id="password"></td>
+					<td><input name="password1" type="password" id="password1"></td>
 				</tr>
 				<tr>
 					<td>Retype Password</td>
@@ -160,8 +160,14 @@
 			</form>
 			</tr>
 			</table>
-			<?php 
-				} 
+			<center>
+				
+				<?php 
+				if($_SESSION['regtry']==TRUE) {
+					echo $_SESSION['regreturn'];
+					$_SESSION['regtry']=FALSE;	 
+				}
+					}
 			?>
       </div>
 

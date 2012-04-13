@@ -32,10 +32,11 @@
 	// If result matched $myusername and $mypassword, table row must be 1 row
 	if($count==1){
 		$_SESSION["logged"]=$_POST["username"];
+		$_SESSION['loginfailed']=FALSE;
 		header("location: index.php"); 
 	} else { 
 		echo 'Incorrect username/password. Please, try again.';
-		$_SESSION['failed']=TRUE;
+		$_SESSION['loginfailed']=TRUE;
 		header("location:index.php"); 
 	}; 
 

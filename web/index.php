@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	$_SESSION['regtry']=FALSE;
 ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -155,7 +156,7 @@
 				<input type="hidden" name="act" value="log">
 			<td>
 				<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-				<?php if(isset($_SESSION['failed'])){
+				<?php if($_SESSION['loginfailed']==TRUE){
 					?>
 					<tr><td colspan="3"><strong><center>Login failed.</center></strong></td></tr>
 				<?php } else { ?>
