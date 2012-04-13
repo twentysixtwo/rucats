@@ -139,7 +139,7 @@ check_logged(); /// function checks if visitor is logged.
         <h1>Placeholder for jobs</h1>
         <form action="upload_file.php" method="post" enctype="multipart/form-data">
 			<label for="file">Filename:</label>
-			<input type="file" name="file" id="file" /> 
+			<input type="file" name="file[]" multiple/> 
 			<br />
 			<input type="submit" name="submit" value="Submit" />
 		</form>

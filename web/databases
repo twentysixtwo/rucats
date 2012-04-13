@@ -5,6 +5,7 @@ id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT  //not 100% sure on this usage ye
 username varchar(16) NOT NULL 
 password varchar(16) NOT NULL
 group int(11) NOT NULL // 0 - admin, 1 - group 1, 2- group 2, ...
+jobcount int(32) DEFAULT 0 //This is used to create unique jobIDs for each upload.
 
 ------
 
@@ -17,3 +18,35 @@ group2 enum(y,n)
 ...
 
 ----
+
+Table : cpuinfo
+Holds the cpu utilization info for each server
+
+data float NULL // CPU Utilization as % of use
+cur_timestamp timestamp DEFAULT CURRENT_TIMESTAMP on UPDATE CURRENT_TIESTAMP
+procID int(11) NULL 
+hostname varchar(255) NULL
+
+-------
+
+Table : tempinfo
+Holds the cpu temperature info for each server
+
+data float NULL //Temperature in °C
+cur_timestamp timestamp DEFAULT CURRENT_TIMESTAMP on UPDATE CURRENT_TI
+ESTAMP
+procID int(11) NULL
+hostname varchar(255) NULL
+
+---------
+
+Table : netinfo
+Holds the network utilization info for each server
+
+rx float NULL //Received data (incoming KB/s)
+tx float NULL //Transferred data (outgoing KB/s)
+cur_timestamp timestamp DEFAULT CURRENT_TIMESTAMP on UPDATE CURRENT_TI
+ESTAMP
+procID int(11) NULL
+hostname varchar(255) NULL
+
