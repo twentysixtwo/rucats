@@ -1,14 +1,16 @@
 <?php
 	ob_start();
 	session_start();
+	//ini_set('display_errors', 'On');
+	//error_reporting(E_ALL | E_STRICT);
 
 	include("password.php");
 	
 	if ($_POST["act"]=="log") { /// do after login form is submitted
 	
 	$host="localhost"; // Host name 
-	$username="root"; // Mysql username 
-	$password="a"; // Mysql password 
+	$username="user"; // Mysql username 
+	$password=""; // Mysql password 
 	$db_name="test"; // Database name 
 	$tbl_name="members"; // Table name
 
@@ -38,7 +40,7 @@
 		echo 'Incorrect username/password. Please, try again.';
 		$_SESSION['loginfailed']=TRUE;
 		header("location:index.php"); 
-	}; 
+	} 
 
 };
 	//if ((array_key_exists($_SESSION["logged"],$USERS)) && (!empty($_SESSION["logged"]))) { 

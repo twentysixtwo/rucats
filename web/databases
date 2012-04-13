@@ -1,0 +1,19 @@
+Table : members
+Holds the registered users
+
+id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT  //not 100% sure on this usage yet
+username varchar(16) NOT NULL 
+password varchar(16) NOT NULL
+group int(11) NOT NULL // 0 - admin, 1 - group 1, 2- group 2, ...
+
+------
+
+Table : servers
+Holds the servers available for each group of users
+
+server varchar(16) NOT NULL //server name
+group1 enum(y,n) 
+group2 enum(y,n)
+...
+
+----

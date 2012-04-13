@@ -69,7 +69,7 @@
 				header("location: register.php"); 
 			} else { //username and password valid put in db
 				mysql_query("INSERT INTO members (username, password) values ('" . $myusername . "','" . $mypassword . "')");
-				$_SESSION['regreturn'] = "Username " . $myusername . " successfully registered.". strlen($myusername) . strlen($mypassword);
+				$_SESSION['regreturn'] = "Username " . $myusername . " successfully registered.";
 				header("location: register.php");
 			}
 		} else { //passwords not equal 

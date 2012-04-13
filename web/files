@@ -1,5 +1,5 @@
 used + 
-unused -
+temp -
 ---------------
 data_cpu.php +
 data_net.php +
@@ -14,7 +14,5 @@ login.php +
 logout.php +
 password.php +
 reg.php +
-register_fail.php -
-register_success.php -
 register.php +
 upload_file.php +
