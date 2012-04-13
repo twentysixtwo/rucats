@@ -4,7 +4,7 @@ Holds the registered users
 id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT  //not 100% sure on this usage yet
 username varchar(16) NOT NULL 
 password varchar(16) NOT NULL
-group int(11) NOT NULL // 0 - admin, 1 - group 1, 2- group 2, ...
+groupid int(11) NOT NULL // 0 - admin, 1 - group 1, 2- group 2, ...
 jobcount int(32) DEFAULT 0 //This is used to create unique jobIDs for each upload.
 
 ------
