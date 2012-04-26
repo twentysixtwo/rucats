@@ -128,6 +128,11 @@ check_logged(); /// function checks if visitor is logged.
               		<li><a href="jobs_submit.php">Submit Jobs</a></li>
               	</ul>
               </li>
+		<?php
+                        if ((array_key_exists("logged",$_SESSION)) && (!empty($_SESSION["logged"]))) { ?>
+                        <li><a href="logout.php">Logout</a></li>
+                        <?php   } ?>
+
             </ul>
           </div><!--/.nav-collapse -->
         </div><!-- End container --> 
@@ -154,7 +159,7 @@ check_logged(); /// function checks if visitor is logged.
 
     <div class="container">
       <div class="hero-unit">
-        <h1>Placeholder for jobs</h1>
+        <h1>Live jobs</h1>
         	
       </div>
 

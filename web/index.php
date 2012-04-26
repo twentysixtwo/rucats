@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	$_SESSION['regtry']=FALSE;
 ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -110,6 +109,10 @@
               		<li><a href="jobs_submit.php">Submit Jobs</a></li>
               	</ul>
               </li>
+		<?php 
+        		if ((array_key_exists("logged",$_SESSION)) && (!empty($_SESSION["logged"]))) { ?>
+			<li><a href="logout.php">Logout</a></li>
+			<?php	} ?>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!-- End container --> 
@@ -136,18 +139,14 @@
 
     <div class="container">
       <div class="hero-unit">
-        <!--<h1>Intro and login</h1>-->
         	<?php 
-        		if ((array_key_exists("logged",$_SESSION)) && (!empty($_SESSION["logged"]))) {
-        			echo "Hello " . $_SESSION["logged"];
-					
-				?>
-				<a href="logout.php">Logout</a>			
-				<?php
-				}
+        		if ((array_key_exists("logged",$_SESSION)) && (!empty($_SESSION["logged"]))) { ?>
+        			<h2><?php echo "Hello " . $_SESSION["logged"] . ".";?></h2>
+				<?php }
 					
 				else {
-				?>
+					
+        	?>
         	
         	<!-- Login prompt --> 
         	<table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
@@ -156,12 +155,7 @@
 				<input type="hidden" name="act" value="log">
 			<td>
 				<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-				<?php if($_SESSION['loginfailed']==TRUE){
-					?>
-					<tr><td colspan="3"><strong><center>Login failed.</center></strong></td></tr>
-				<?php } else { ?>
 				<tr><td colspan="3"><strong><center>Login</center></strong></td></tr>
-				<?php } ?>
 				<tr>
 					<td width="78">Username</td>
 					<td width="6">:</td>
@@ -183,6 +177,12 @@
 			</form>
 			</tr>
 			</table>
+			<center><?php if($_SESSION['logtry']==TRUE) {
+				echo $_SESSION['logreturn'];
+				$_SESSION['logtry']==FALSE;
+				}
+				?>
+			</center> 
 			<?php 
 				} 
 			?>

@@ -9,9 +9,9 @@
 		$pass2=$_POST['password2'];
 		if(!strcmp($pass1,$pass2)) { //returns 0 on equal
 			$host="localhost"; // Host name 
-			$username="user"; // Mysql username 
-			$password=""; // Mysql password 
-			$db_name="test"; // Database name 
+			$username="rucats"; // Mysql username 
+			$password="Hill#252"; // Mysql password 
+			$db_name="rucats"; // Database name 
 			$tbl_name="members"; // Table name
 
 			// Connect to server and select databse.

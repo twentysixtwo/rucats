@@ -9,9 +9,9 @@ $numpts = $_SESSION['numpts'];
 //echo $numpts;
 
     $dbhost = 'localhost';
-    $dbuser = 'aditya';
-    $dbpass = 'obelix1';
-    $dbname = "cluster";
+    $dbuser = 'rucats';
+    $dbpass = 'Hill#252';
+    $dbname = "rucats";
     $dbhandle = mysql_connect($dbhost, $dbuser, $dbpass);
     if(!$dbhandle){
     die('Could not connect to MySQL database: '. mysql_error());    

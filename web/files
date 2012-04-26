@@ -1,5 +1,5 @@
 used + 
-temp -
+unused -
 ---------------
 data_cpu.php +
 data_net.php +
@@ -13,6 +13,3 @@ jobs.php +
 login.php +
 logout.php +
 password.php +
-reg.php +
-register.php +
-upload_file.php +

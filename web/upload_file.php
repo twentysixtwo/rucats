@@ -1,5 +1,5 @@
 <head>
-<meta http-equiv="refresh" content="109; URL=jobs.php">
+<meta http-equiv="refresh" content="10; URL=jobs.php">
 </head>
 
 <?php
@@ -15,11 +15,11 @@
 	
 
 
-	$dbhost = 'hostname';
-	$dbuser = 'username';
-	$dbpass = 'password';
-	$dbname = "dbname";
-	$tblname = "tablename";
+	$dbhost = 'localhost';
+	$dbuser = 'rucats';
+	$dbpass = 'Hill#252';
+	$dbname = "rucats";
+	$tblname = "members";
     $query = "select jobcount from " . $tblname . " where username='" . $username . "';";
 
 	$dbhandle = mysql_connect($dbhost, $dbuser, $dbpass);
@@ -79,7 +79,10 @@
 		else{
 		$tempname = $_FILES["file"]["tmp_name"][$i];
       			if(move_uploaded_file($tempname, $path . '/' . $name)){
-			    	echo "Upload: " . $name . "<br />";
+				//echo $path.'/'.$name;
+			    	//echo chown($path.'/'.$name,'www-data');
+				//echo chmod($path.'/'.$name,0777);
+				echo "Upload: " . $name . "<br />";
 			    	echo "Type: " . $_FILES["file"]["type"][$i] . "<br />";
 			    	echo "Size: " . round(($_FILES["file"]["size"][$i] / 1024),3) . " Kb<br />";
 					$size += $_FILES['file']['size'][$i];
@@ -99,20 +102,20 @@
 	if($cprogram && $makefile){
 		fwrite($fp,"C");
 		fclose($fp);	
+		chmod($path . '/manifest',0777);
 	}
 	
 	else if($javaprogram){
 		fwrite($fp,"java");
 		fclose($fp);
 	}
-
+	
 	$phar = new PharData($path . '.tar');
 	$phar->buildFromDirectory($path);
-
+	chmod($path. '.tar',0777);
 	deleteDirectory($path);
 	//deleteDirectory($path . '.tar');
 	
-
 	function deleteDirectory($dir){
 		if (!file_exists($dir)) return true;
 		if (!is_dir($dir)) return unlink($dir);

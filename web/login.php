@@ -1,17 +1,15 @@
 <?php
 	ob_start();
 	session_start();
-	//ini_set('display_errors', 'On');
-	//error_reporting(E_ALL | E_STRICT);
 
 	include("password.php");
-	
+		
 	if ($_POST["act"]=="log") { /// do after login form is submitted
-	
+	$_SESSION['logtry']=TRUE;
 	$host="localhost"; // Host name 
-	$username="user"; // Mysql username 
-	$password=""; // Mysql password 
-	$db_name="test"; // Database name 
+	$username="rucats"; // Mysql username 
+	$password="Hill#252"; // Mysql password 
+	$db_name="rucats"; // Database name 
 	$tbl_name="members"; // Table name
 
 	// Connect to server and select databse.
@@ -26,7 +24,7 @@
 	$mypassword = stripslashes($mypassword);
 	$myusername = mysql_real_escape_string($myusername);
 	$mypassword = mysql_real_escape_string($mypassword);
-
+	
 	$sql="SELECT * FROM " . $tbl_name . " WHERE username='" . $myusername . "' and password='". $mypassword. "'";
 	$result=mysql_query($sql);
 	// Mysql_num_row is counting table row
@@ -34,15 +32,14 @@
 	// If result matched $myusername and $mypassword, table row must be 1 row
 	if($count==1){
 		$_SESSION["logged"]=$_POST["username"];
-		$_SESSION['loginfailed']=FALSE;
+		$_SESSION['logreturn']=$_SESSION["logged"] . " successfully logged in.";
 		header("location: index.php"); 
 	} else { 
-		echo 'Incorrect username/password. Please, try again.';
-		$_SESSION['loginfailed']=TRUE;
-		header("location:index.php"); 
-	} 
+		$_SESSION['logreturn']='Incorrect username/password. Please, try again.'; 
+	}; 
 
 };
+	header("location:index.php");
 	//if ((array_key_exists($_SESSION["logged"],$USERS)) && (!empty($_SESSION["logged"]))) { 
 	//	header("location: index.php");
 	//} else { // if not logged show login form (eventually redirect to prettier login page) 

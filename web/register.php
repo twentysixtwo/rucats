@@ -104,6 +104,11 @@
               		<li><a href="jobs_submit.php">Submit Jobs</a></li>
               	</ul>
               </li>
+		<?php
+                        if ((array_key_exists("logged",$_SESSION)) && (!empty($_SESSION["logged"]))) { ?>
+                        <li><a href="logout.php">Logout</a></li>
+                        <?php   } ?>
+
             </ul>
           </div><!--/.nav-collapse -->
         </div><!-- End container --> 
