@@ -1,11 +1,17 @@
 used + 
 unused -
 ---------------
+admin.php +
+blank.php +
 data_cpu.php +
 data_net.php +
 data_temp.php +
 data.php +
+databases +
+files +
+getuser.php +
 graph.php +
+index.html +
 index.php +
 jobs_live.php +
 jobs_submit.php +
@@ -13,3 +19,6 @@ jobs.php +
 login.php +
 logout.php +
 password.php +
+reg.php +
+register.php +
+upload_file.php +

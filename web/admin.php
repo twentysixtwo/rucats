@@ -1,5 +1,7 @@
 <?php
 	session_start();
+	ini_set('display_errors', 'On');
+	error_reporting(E_ALL | E_STRICT);
 ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -28,7 +30,7 @@
 	<script src="js/libs/bootstrap/collapse.js"></script>
 	
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script type="text/javascript">
+	<!--<script type="text/javascript">
 		$(document).ready(function(){
         		$('#login-trigger').click(function(){
                 		$(this).next('#login-content').slideToggle();
@@ -37,7 +39,7 @@
                         	else $(this).find('span').html('&#x25BC;')
                 		})
 			});
-	</script>
+	</script>-->
 </head>
 <body>
 
@@ -113,7 +115,67 @@
 
     <div class="container">
       <div class="hero-unit">
+      	<script type="text/javascript">
+			function showUser(str) {
+				if (str=="") {
+  					document.getElementById("txt").innerHTML="BLANK";
+  					return;
+  				} 
+				if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+  					xmlhttp=new XMLHttpRequest();
+  				}
+				else {// code for IE6, IE5
+  					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  				}
+				xmlhttp.onreadystatechange=function() {
+  					if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+    					document.getElementById("txt").innerHTML=xmlhttp.responseText;
+    				}
+  				}
+				xmlhttp.open("GET","getuser.php?q="+str,true);
+				xmlhttp.send();
+				}
+		</script>
+		
+			<?php 
+					$host="localhost"; // Host name 
+					$username="user"; // Mysql username 
+					$password=""; // Mysql password 
+					$db_name="test"; // Database name 
+					$tbl_name="members"; // Table name
 
+					// Connect to server and select database.
+					mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
+					mysql_select_db("$db_name")or die("cannot select DB");
+					
+					$query = "SELECT username FROM " . $tbl_name;
+					$result = mysql_query($query);
+					
+					//if (isset($_POST['selectgroup'])) {
+						//echo update group new info user
+					//}
+					
+					//if (isset($_POST['selectuser'])) {
+						//echo info groupid
+					//}
+					?>
+					<!--<form name="selectuser" method="POST" action="<?php echo htmlentities($_SERVER['PHP_SELF']);?>">-->
+					<form>
+						<!--<input type="submit" name="submit" value="Update user">-->
+						<select name="users" onchange="showUser(this.value)">-->
+						
+						<option value="">Select user:</option>
+					<?php
+					while ($row = mysql_fetch_array($result)) {
+						if(!empty($row['username']))
+						echo "<option value=" . $row['username'] . ">" . $row['username'] . "</option>";
+					}
+					?>
+					</select>
+					</form>
+					<br />
+					<div id="txt"><b>User info will be listed here.</b></div>
+					
       </div>
 
     </div> <!-- /container -->
