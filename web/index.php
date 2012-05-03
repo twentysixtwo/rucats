@@ -109,6 +109,10 @@
               		<li><a href="jobs_submit.php">Submit Jobs</a></li>
               	</ul>
               </li>
+              <?php if(!strcmp($_SESSION['logged'],'admin')) {
+              ?>
+              <li><a href="admin.php">Admin</a></li>
+              <?php } ?> 
 		<?php 
         		if ((array_key_exists("logged",$_SESSION)) && (!empty($_SESSION["logged"]))) { ?>
 			<li><a href="logout.php">Logout</a></li>
@@ -187,41 +191,8 @@
 				} 
 			?>
       </div>
-
-      <!-- Example row of columns -->
-      <!--
-      <div class="row">
-        <div class="span4">
-          <h2>Heading</h2>
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-        </div>
-      </div>
-		-->
-      <!-- Horizontal line <hr> --> 
-
-      <footer>
-      </footer>
-
     </div> <!-- /container -->
     
-    <!-- unneeded scripts 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-
-
-<script src="js/plugins.js"></script>
-<script src="js/script.js"></script>
-<script>
-	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
-	-->
+    
 </body>
 </html>

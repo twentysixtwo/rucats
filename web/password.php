@@ -8,4 +8,11 @@ function check_logged() {
 		header("Location: login.php");
 	};
 };
+
+function check_admin() {
+	global $_SESSION;
+	if(strcmp($_SESSION['logged'], 'admin')) {
+		header("Location: login.php");
+	};
+};
 ?>

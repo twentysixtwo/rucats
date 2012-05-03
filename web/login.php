@@ -7,11 +7,11 @@
 	if ($_POST["act"]=="log") { /// do after login form is submitted
 	$_SESSION['logtry']=TRUE;
 	$host="localhost"; // Host name 
-	$username="rucats"; // Mysql username 
-	$password="Hill#252"; // Mysql password 
-	$db_name="rucats"; // Database name 
+	$username="user";//"rucats"; // Mysql username 
+	$password="";//"Hill#252"; // Mysql password 
+	$db_name="test";//"rucats"; // Database name 
 	$tbl_name="members"; // Table name
-
+	
 	// Connect to server and select databse.
 	mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
 	mysql_select_db("$db_name")or die("cannot select DB");

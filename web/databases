@@ -13,9 +13,9 @@ Table : servers
 Holds the servers available for each group of users
 
 server varchar(16) NOT NULL //server name
-group1 enum(y,n) 
-group2 enum(y,n)
-...
+group0 enum('yes','no') 
+group1 enum('yes','no')
+group2 enum('yes','no')
 
 ----
 

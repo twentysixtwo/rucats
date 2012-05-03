@@ -1,7 +1,10 @@
 <?php
 	session_start();
-	ini_set('display_errors', 'On');
-	error_reporting(E_ALL | E_STRICT);
+	//ini_set('display_errors', 'On');
+	//error_reporting(E_ALL | E_STRICT);
+	include("password.php"); 
+	check_logged(); // function checks if visitor is logged.
+	check_admin();
 ?>
 <!doctype html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
@@ -92,7 +95,7 @@
           <a class="brand" href="#">RUCATS</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li><a href="index.php">Home</a></li>
               <li><a href="data.php">Data</a>
               	<ul class="sub-level sub-level-data">
               		<li><a href="data_cpu.php">CPU Data</a></li>
@@ -106,6 +109,11 @@
               		<li><a href="jobs_submit.php">Submit Jobs</a></li>
               	</ul>
               </li>
+              <li class="active"><a href="#">Admin</a></li>
+              <?php  
+        		if ((array_key_exists("logged",$_SESSION)) && (!empty($_SESSION["logged"]))) { ?>
+			<li><a href="logout.php">Logout</a></li>
+			<?php	} ?>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!-- End container --> 
@@ -118,7 +126,7 @@
       	<script type="text/javascript">
 			function showUser(str) {
 				if (str=="") {
-  					document.getElementById("txt").innerHTML="BLANK";
+  					document.getElementById("usrtxt").innerHTML="";
   					return;
   				} 
 				if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -129,14 +137,34 @@
   				}
 				xmlhttp.onreadystatechange=function() {
   					if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-    					document.getElementById("txt").innerHTML=xmlhttp.responseText;
+    					document.getElementById("usrtxt").innerHTML=xmlhttp.responseText;
     				}
   				}
 				xmlhttp.open("GET","getuser.php?q="+str,true);
 				xmlhttp.send();
 				}
+			function showServer(str) {
+				if (str=="") {
+					document.getElementById("srvtxt").innerHTML="";
+  					return;
+				}
+				if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+  					xmlhttp=new XMLHttpRequest();
+  				}
+				else {// code for IE6, IE5
+  					xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  				}
+				xmlhttp.onreadystatechange=function() {
+  					if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+    					document.getElementById("srvtxt").innerHTML=xmlhttp.responseText;
+    				}
+  				}
+				xmlhttp.open("GET","getserver.php?q="+str,true);
+				xmlhttp.send();
+			}
 		</script>
-		
+			<h3>Administration</h3><br />
+			<div style="float: left;">
 			<?php 
 					$host="localhost"; // Host name 
 					$username="user"; // Mysql username 
@@ -174,10 +202,44 @@
 					</select>
 					</form>
 					<br />
-					<div id="txt"><b>User info will be listed here.</b></div>
+					<div id="usrtxt"><b>User info will be listed here.</b></div>	
+					<br /><br />	
+				<form>
+					<select name="servers" onchange="showServer(this.value)">
+						<option value="">Select server:</option>
+						<?php				
+						$host="localhost"; // Host name 
+						$username="user"; // Mysql username 
+						$password=""; // Mysql password 
+						$db_name="test"; // Database name 
+						$tbl_name="servers"; // Table name
+						// Connect to server and select database.
+						mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
+						mysql_select_db("$db_name")or die("cannot select DB");	
+						$query = "SELECT server FROM " . $tbl_name;
+						$result = mysql_query($query);
+						
+							while ($row = mysql_fetch_array($result)) {
+								if(!empty($row['server']))
+								echo "<option value=" . $row['server'] . ">" . $row['server'] . "</option>";
+							}
+						?>
+					</select>
+				</form>
+				<br />
+				<div id="srvtxt"><b>Server info will be listed here.</b></div>
+			</div> <!-- left float -->
+			<div style="float: right;">
+				Change settings here
+				can change user group
+				Form and select 
+				<form>
+				<select>
 					
-      </div>
-
+				</select>
+				</form>
+			</div> <!-- right float -->
+	</div> <!-- hero-unit -->
     </div> <!-- /container -->
 </body>
 </html>
